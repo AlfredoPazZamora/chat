@@ -1,0 +1,54 @@
+body{
+	font-family: Arial;
+  	background-color: WhiteSmoke;
+  	font-size: 18px;
+}
+h1{
+	color: white;
+}
+p{
+	text-align: center;
+}
+#login{
+	background: #0288D1;
+	text-align: center;
+	padding: 2%;
+	width: 350px;
+	margin: 0 auto;
+	font-family: Arial;
+}
+#login > div > input{
+	margin-bottom: 2%;
+	background: #FFFFFF;
+	border: none;
+	width: 80%;
+	padding: .8em;
+	color: white;
+	border-radius: 5px;
+}
+#login > div{
+	color: white;
+}
+.envia{
+	width: 150px;
+	height: 40px;
+	border: none;
+	margin-top: 3%;
+	background: #03A9F4;
+	color: white;
+	border-radius: 5px;
+}
+.envia:hover{
+	background: #2196F3;
+	cursor: pointer;
+	font-weight: bold;
+}
+@media only screen and (max-width: 380px) {
+#login{
+	width: 90%;
+}
+.envia{
+	width: 100px;
+	height: 30px;
+	}
+}

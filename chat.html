@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat con nodeJs y Socket.io</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+    
+    <!-- <div id='loginForm'>
+        <p>Ingresa tu nombre para continuar: </p>
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre" id="nombre">
+        <input type="button" value="Enviar" name="enviar" id="enviar-nombre">
+    </div>
+
+    <div id="wrapper"> <!-- caja de texto para los mensajes --
+        <div id="menu">
+            <p class="bienvenido">Bienvenido, <b id="usernameTag"></b></p>
+            <p class="salir"><a id="exit" href="#">Salir del chat</a></p>
+        </div>
+
+        <div id="chatbox">
+            <!-- Caja del chat que contendra todos los mensajes. --
+        </div>
+
+        <form name="message" action="">
+            <input name="usermsg" type="text" id="mensaje" size="63"/>
+            <input type="button" name="submitmsg" id="enviarMensaje" value="Enviar Mensaje"/>
+        </form>
+
+    </div> -->
+
+    <!-- <h1>Hola bienvenido al chat</h1> -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        
+        let socket = io();
+
+        $(document).ready(function(){
+            $('#wrapper').hide();
+
+            $('#enviar-nombre').click(function(){
+                if($('#nombre').val().length <= 0){
+                    alert('Ingresa tu nombre')
+                }else{
+                    let username = $('#nombre').val();
+                    socket.emit('crearUsuario', username);
+                    $('#wrapper').show();
+                    $('#loginForm').hide();
+                    $('#usernameTag').append(username);
+                }
+            });
+
+            $('#enviarMensaje').click(function(){
+                let mensaje = $('#mensaje').val()
+                socket.emit('mjsNuevo', mensaje); // Enviamos el nuevo mensaje a la función de mensaje nuevo.
+            });
+
+            socket.on('mensaje', function(data){
+                let nuevoMensaje = `<b> ${data.usuario} dice: </b> ${data.mensaje}`;
+                $('#chatbox').append(nuevoMensaje + '</br>');
+            })
+        })
+    </script>
+</body>
+</html>
