@@ -1,54 +1,26 @@
-body{
-	font-family: Arial;
-  	background-color: WhiteSmoke;
-  	font-size: 18px;
+body {
+	font-family: 'Open Sans', sans-serif;
+	background: #f9faff;
+	color: #3a3c47;
+	line-height: 1.6;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0;
+	padding: 0;
 }
-h1{
-	color: white;
+  
+h1 {
+	margin-top: 48px;
 }
-p{
-	text-align: center;
-}
-#login{
-	background: #0288D1;
-	text-align: center;
-	padding: 2%;
-	width: 350px;
-	margin: 0 auto;
-	font-family: Arial;
-}
-#login > div > input{
-	margin-bottom: 2%;
-	background: #FFFFFF;
-	border: none;
-	width: 80%;
-	padding: .8em;
-	color: white;
-	border-radius: 5px;
-}
-#login > div{
-	color: white;
-}
-.envia{
-	width: 150px;
-	height: 40px;
-	border: none;
-	margin-top: 3%;
-	background: #03A9F4;
-	color: white;
-	border-radius: 5px;
-}
-.envia:hover{
-	background: #2196F3;
-	cursor: pointer;
-	font-weight: bold;
-}
-@media only screen and (max-width: 380px) {
-#login{
-	width: 90%;
-}
-.envia{
-	width: 100px;
-	height: 30px;
-	}
+
+.form{
+	background: #fff;
+	max-width: 360px;
+	width: 100%;
+	padding: 58px 44px;
+	border: 1px solid #e1e2f0;
+	border-radius: 4px;
+	box-shadow: 0 0 5px 0 rgba(42, 45, 48, 0.12);
+	transition: all 0.3s ease;
 }
