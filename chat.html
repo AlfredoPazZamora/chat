@@ -111,10 +111,10 @@
             <!-- Caja del chat que contendra todos los mensajes. -->
         </div>
 
-        <form name="message" action="" class="mensaje">
+        <!-- <form name="message" action="" class="mensaje"> -->
             <input name="usermsg" type="text" id="mensaje" size="63"/>
             <input type="button" name="submitmsg" id="enviarMensaje" value="Enviar Mensaje"/>
-        </form>
+        <!-- </form> -->
 
     </div>
 
@@ -140,15 +140,21 @@
             });
 
             $('#enviarMensaje').click(function(){
-                let mensaje = $('#mensaje').val()
-                socket.emit('mjsNuevo', mensaje); // Enviamos el nuevo mensaje a la función de mensaje nuevo.
-                $('#mensaje').val('');
-                $('#mensaje').focus();
+
+                if($('#mensaje').val().length <= 0){
+                    alert('Escribe el mensaje para poder enviar.');
+                }else{
+                    let mensaje = $('#mensaje').val()
+                    socket.emit('mjsNuevo', mensaje); // Enviamos el nuevo mensaje a la función de mensaje nuevo.
+                }
+
             });
 
             socket.on('mensaje', function(data){
                 let nuevoMensaje = `<b> ${data.usuario} dice: </b> ${data.mensaje}`;
                 $('#chatbox').append(nuevoMensaje + '</br></br>');
+                $('#mensaje').val('');
+                $('#mensaje').focus();
             })
         })
     </script>
